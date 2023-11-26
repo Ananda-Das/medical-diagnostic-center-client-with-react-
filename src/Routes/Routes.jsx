@@ -1,9 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import MainLayouts from "../layouts/MainLayout.jsx/MainLayouts";
+import MainLayouts from "../layouts/MainLayout/MainLayouts";
 import Home from "../pages/Home/Home";
 import Registration from "../pages/Registration/Registration";
 import Login from "../pages/Login/Login";
+import AdminRoutes from "./AdminRoutes";
+import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
+import Dashboard from "../layouts/AdminLayout/Dashboard";
 
 const Routes = createBrowserRouter([
   {
@@ -21,6 +24,20 @@ const Routes = createBrowserRouter([
       {
         path: "login",
         element: <Login></Login>,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: "adminHome",
+        element: (
+          <AdminRoutes>
+            <AdminHome></AdminHome>
+          </AdminRoutes>
+        ),
       },
     ],
   },

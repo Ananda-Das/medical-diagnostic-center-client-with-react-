@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import useAdmin from "../../hooks/useAdmin";
 
 const Navbar = () => {
 
   const { user, logOut } = useContext(AuthContext);
+  const [isAdmin] = useAdmin();
 
   const handleLogOut = () => {
     logOut()
@@ -24,6 +26,12 @@ const Navbar = () => {
           About
         </NavLink>
       </li>
+      {/* check admin or not */}
+      {user && isAdmin && (
+        <li>
+          <Link to="/dashboard/adminHome">Dashboard</Link>
+        </li>
+      )}
       {user ? (
         <>
           <button onClick={handleLogOut} className="btn btn-ghost">
