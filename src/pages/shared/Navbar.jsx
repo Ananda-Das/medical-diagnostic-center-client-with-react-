@@ -1,6 +1,17 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
+
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
+
   const navLink = (
     <>
       <li className="capitalize font-medium text-[#0F2239] text-base">
@@ -13,11 +24,21 @@ const Navbar = () => {
           About
         </NavLink>
       </li>
-      <li className="capitalize font-medium text-[#0F2239] text-base">
-        <NavLink className={({ isActive, isPending }) => (isPending ? "pending" : isActive ? "text-[rgb(13,110,253)] underline font-bold" : "")} to="/">
-          Login
-        </NavLink>
-      </li>
+      {user ? (
+        <>
+          <button onClick={handleLogOut} className="btn btn-ghost">
+            Log Out
+          </button>
+        </>
+      ) : (
+        <>
+        <li>
+          <Link to="/login">
+              <a>Log In</a>
+          </Link>
+          </li>
+        </>
+      )}
     </>
   );
   return (
