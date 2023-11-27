@@ -1,7 +1,10 @@
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 
 const AddTest = () => {
+    const axiosSecure= useAxiosSecure();
 
     //for hook form
   const {
@@ -14,6 +17,29 @@ const AddTest = () => {
 
   const onSubmit = async (data) => {
     console.log(data);
+
+    const testItem = {
+        name: data.name,
+        imageUrl: data.imageUrl,
+        price: data.price,
+        date: data.date,
+        details: data.details,
+        slot: data.slot,
+    }
+
+    axiosSecure.post("/add/test", testItem).then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Test Added successfully.",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          // navigate("/");
+          console.log("success");
+        }
+      });
 
   };
 
@@ -78,15 +104,36 @@ const AddTest = () => {
           </div>
         </div>
         <div className="grid grid-cols-2 justify-center items-center gap-3">
-          
-          
-        </div>
-        <div className="grid grid-cols-2 justify-center items-center gap-3">
-          
+        <div className="form-control">
+            <label className="label">
+              <span className="label-text">Date</span>
+            </label>
+            <input
+              {...register("date", { required: true })}
+              type="date"
+              name="date"
+              placeholder="Date"
+              className="input input-bordered bg-[#F2F2F2]"
+            />
+            {errors.date && <span className="text-red-500">Date field is required</span>}
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Slot</span>
+            </label>
+            <input
+              {...register("slot", { required: true })}
+              type="number"
+              name="slot"
+              placeholder="Slot"
+              className="input input-bordered bg-[#F2F2F2]"
+            />
+            {errors.slot && <span className="text-red-500">Slot field is required</span>}
+          </div>
           
         </div>
         <div className="form-control mt-6">
-          <button className="btn bg-[#065af7] text-white font-bold text-xl">Register</button>
+          <button className="btn bg-[#065af7] text-white font-bold text-xl">ADD</button>
         </div>
       </form>
         </div>

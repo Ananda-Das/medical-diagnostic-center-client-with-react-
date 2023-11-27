@@ -40,22 +40,7 @@ const Registration = () => {
     formState: { errors },
   } = useForm();
 
-  //handle submit
-  //   const handleSubmit = e =>{
-  //     e.preventDefault();
-  //     const form = e.target;
-  //     const name = form.name.value;
-  //     const email = form.email.value;
-  //     const bloodgrp = form.bloodgrp.value;
-  //     const district = form.district.value;
-  //     const upazila = form.upazila.value;
-  //     const password = form.password.value;
-  //     const cpass = form.cpass.value;
 
-  //     const user = {name, email, bloodgrp, district, upazila, password, cpass};
-  //     console.log(user);
-
-  //   }
   const onSubmit = async (data) => {
     console.log(data);
     //image uploda to imagebb and then get an url
