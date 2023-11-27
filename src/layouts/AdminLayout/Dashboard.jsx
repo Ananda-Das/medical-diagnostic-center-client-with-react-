@@ -28,12 +28,12 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/bookings">
-                  <FaBook></FaBook> Manage Bookings
+                <NavLink to="/dashboard/add/test">
+                  <FaBook></FaBook> Add Test
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/users">
+                <NavLink to="/dashboard/allusers">
                   <FaUsers></FaUsers> All users
                 </NavLink>
               </li>

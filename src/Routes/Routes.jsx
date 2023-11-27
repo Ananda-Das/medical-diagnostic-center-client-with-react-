@@ -7,6 +7,8 @@ import Login from "../pages/Login/Login";
 import AdminRoutes from "./AdminRoutes";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import Dashboard from "../layouts/AdminLayout/Dashboard";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUser";
+import AddTest from "../pages/Dashboard/AddTest/AddTest";
 
 const Routes = createBrowserRouter([
   {
@@ -36,6 +38,22 @@ const Routes = createBrowserRouter([
         element: (
           <AdminRoutes>
             <AdminHome></AdminHome>
+          </AdminRoutes>
+        ),
+      },
+      {
+        path: "allusers",
+        element: (
+          <AdminRoutes>
+            <AllUsers></AllUsers>
+          </AdminRoutes>
+        ),
+      },
+      {
+        path: "add/test",
+        element: (
+          <AdminRoutes>
+            <AddTest></AddTest>
           </AdminRoutes>
         ),
       },
