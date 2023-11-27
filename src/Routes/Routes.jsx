@@ -12,6 +12,7 @@ import AddTest from "../pages/Dashboard/AddTest/AddTest";
 import Test from "../pages/Dashboard/Test/Test";
 import UpdateTest from "../pages/Dashboard/UpdateTest/UpdateTest";
 import AddBanner from "../pages/Dashboard/Banner/AddBanner";
+import AllBanner from "../pages/Dashboard/Banner/AllBanner";
 
 const Routes = createBrowserRouter([
   {
@@ -82,6 +83,14 @@ const Routes = createBrowserRouter([
         element: (
           <AdminRoutes>
             <AddBanner></AddBanner>
+          </AdminRoutes>
+        ),
+      },
+      {
+        path: "allBanners",
+        element: (
+          <AdminRoutes>
+            <AllBanner></AllBanner>
           </AdminRoutes>
         ),
       },

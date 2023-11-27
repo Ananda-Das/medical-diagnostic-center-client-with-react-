@@ -23,6 +23,11 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
+                <NavLink to="/dashboard/allBanners">
+                  <FaUtensils></FaUtensils> All Banners
+                </NavLink>
+              </li>
+              <li>
                 <NavLink to="/dashboard/allTest">
                   <FaList></FaList> All test
                 </NavLink>
