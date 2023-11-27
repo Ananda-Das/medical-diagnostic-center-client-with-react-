@@ -1,51 +1,48 @@
 import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
+import { useLoaderData } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 
-const AddTest = () => {
-    const axiosSecure= useAxiosSecure();
+const UpdateTest = () => {
 
-    //for hook form
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+    const {name, price, imageUrl,  date, slot, details, _id} = useLoaderData();
 
+    const { register, handleSubmit } = useForm();
 
+    const axiosSecure = useAxiosSecure();
 
-  const onSubmit = async (data) => {
-    console.log(data);
-
-    const testItem = {
-        name: data.name,
-        imageUrl: data.imageUrl,
-        price: data.price,
-        date: data.date,
-        details: data.details,
-        slot: data.slot,
-    }
-
-    axiosSecure.post("/add/test", testItem).then((res) => {
-        if (res.data.insertedId) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Test Added successfully.",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          // navigate("/");
-          console.log("success");
+    const onSubmit = async (data) => {
+        console.log(data);
+    
+        const testItem = {
+            name: data.name,
+            imageUrl: data.imageUrl,
+            price: data.price,
+            date: data.date,
+            details: data.details,
+            slot: data.slot,
         }
-      });
-
-  };
+    
+        axiosSecure.patch(`/test/${_id}`, testItem).then((res) => {
+            if (res.data.insertedId) {
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Test Added successfully.",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              // navigate("/");
+              console.log("success");
+            }
+          });
+    
+      };
 
     return (
         <div>
-            <h1>Add a Test</h1>
+            <h1>update: {name}</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="card-body text-center lg:w-1/2 md:h-3/4 mx-auto">
         <div className="grid grid-cols-2 justify-center items-center gap-3">
           <div className="form-control">
@@ -56,10 +53,10 @@ const AddTest = () => {
               {...register("name", { required: true })}
               type="text"
               name="name"
+                defaultValue={name}
               placeholder="Name"
               className="input input-bordered bg-[#F2F2F2]"
             />
-            {errors.name && <span className="text-red-500">Name field is required</span>}
           </div>
           <div className="form-control">
             <label className="label">
@@ -68,11 +65,11 @@ const AddTest = () => {
             <input
               {...register("imageUrl", { required: true })}
               type="text"
+              defaultValue={imageUrl}
               name="imageUrl"
               placeholder="Image Url"
               className="input input-bordered bg-[#F2F2F2]"
             />
-            {errors.imageUrl && <span className="text-red-500">imageUrl field is required</span>}
           </div>
         </div>
         <div className="grid grid-cols-2 justify-center items-center gap-3">
@@ -84,10 +81,10 @@ const AddTest = () => {
               {...register("details", { required: true })}
               type="text"
               name="details"
+              defaultValue={details}
               placeholder="Details"
               className="input input-bordered bg-[#F2F2F2]"
             />
-            {errors.details && <span className="text-red-500">Details field is required</span>}
           </div>
           <div className="form-control">
             <label className="label">
@@ -97,10 +94,10 @@ const AddTest = () => {
               {...register("price", { required: true })}
               type="text"
               name="price"
+              defaultValue={price}
               placeholder="Price"
               className="input input-bordered bg-[#F2F2F2]"
             />
-            {errors.price && <span className="text-red-500">Price field is required</span>}
           </div>
         </div>
         <div className="grid grid-cols-2 justify-center items-center gap-3">
@@ -112,10 +109,10 @@ const AddTest = () => {
               {...register("date", { required: true })}
               type="date"
               name="date"
+              defaultValue={date}
               placeholder="Date"
               className="input input-bordered bg-[#F2F2F2]"
             />
-            {errors.date && <span className="text-red-500">Date field is required</span>}
           </div>
           <div className="form-control">
             <label className="label">
@@ -125,19 +122,19 @@ const AddTest = () => {
               {...register("slot", { required: true })}
               type="number"
               name="slot"
+              defaultValue={slot}
               placeholder="Slot"
               className="input input-bordered bg-[#F2F2F2]"
             />
-            {errors.slot && <span className="text-red-500">Slot field is required</span>}
           </div>
           
         </div>
         <div className="form-control mt-6">
-          <button className="btn bg-[#065af7] text-white font-bold text-xl">ADD</button>
+          <button className="btn bg-[#065af7] text-white font-bold text-xl">Update</button>
         </div>
       </form>
         </div>
     );
 };
 
-export default AddTest;
+export default UpdateTest;

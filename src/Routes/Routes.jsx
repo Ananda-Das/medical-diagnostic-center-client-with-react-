@@ -9,6 +9,8 @@ import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import Dashboard from "../layouts/AdminLayout/Dashboard";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUser";
 import AddTest from "../pages/Dashboard/AddTest/AddTest";
+import Test from "../pages/Dashboard/Test/Test";
+import UpdateTest from "../pages/Dashboard/UpdateTest/UpdateTest";
 
 const Routes = createBrowserRouter([
   {
@@ -56,6 +58,24 @@ const Routes = createBrowserRouter([
             <AddTest></AddTest>
           </AdminRoutes>
         ),
+      },
+      {
+        path: "allTest",
+        element: (
+          <AdminRoutes>
+            <Test></Test>
+          </AdminRoutes>
+        ),
+      },
+      {
+        path: "updatetest/:id",
+        element: (
+          <AdminRoutes>
+            <UpdateTest></UpdateTest>
+          </AdminRoutes>
+        ),
+        // loader: ({ params }) => fetch(`http://localhost:5000/test/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/test/${params.id}`),
       },
     ],
   },
