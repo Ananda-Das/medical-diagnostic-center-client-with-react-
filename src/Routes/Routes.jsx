@@ -11,6 +11,7 @@ import AllUsers from "../pages/Dashboard/AllUsers/AllUser";
 import AddTest from "../pages/Dashboard/AddTest/AddTest";
 import Test from "../pages/Dashboard/Test/Test";
 import UpdateTest from "../pages/Dashboard/UpdateTest/UpdateTest";
+import AddBanner from "../pages/Dashboard/Banner/AddBanner";
 
 const Routes = createBrowserRouter([
   {
@@ -74,8 +75,15 @@ const Routes = createBrowserRouter([
             <UpdateTest></UpdateTest>
           </AdminRoutes>
         ),
-        // loader: ({ params }) => fetch(`http://localhost:5000/test/${params.id}`),
         loader: ({ params }) => fetch(`http://localhost:5000/test/${params.id}`),
+      },
+      {
+        path: "addBanners",
+        element: (
+          <AdminRoutes>
+            <AddBanner></AddBanner>
+          </AdminRoutes>
+        ),
       },
     ],
   },
