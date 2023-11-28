@@ -16,6 +16,7 @@ import AllBanner from "../pages/Dashboard/Banner/AllBanner";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import Profile from "../pages/Dashboard/Profile/Profile";
 import Alltests from "../pages/AllTests/Alltests";
+import TestDetail from "../pages/AllTests/TestDetail/TestDetail";
 
 const Routes = createBrowserRouter([
   {
@@ -37,6 +38,11 @@ const Routes = createBrowserRouter([
       {
         path: "allTest",
         element: <Alltests></Alltests>,
+      },
+      {
+        path: "test/:id",
+        element: <TestDetail></TestDetail>,
+        loader: () => fetch("http://localhost:5000/tests"),
       },
     ],
   },
