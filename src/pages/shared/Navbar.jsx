@@ -4,7 +4,6 @@ import { AuthContext } from "../../provider/AuthProvider";
 import useAdmin from "../../hooks/useAdmin";
 
 const Navbar = () => {
-
   const { user, logOut } = useContext(AuthContext);
   const [isAdmin] = useAdmin();
 
@@ -17,13 +16,27 @@ const Navbar = () => {
   const navLink = (
     <>
       <li className="capitalize font-medium text-[#0F2239] text-base">
-        <NavLink className={({ isActive, isPending }) => (isPending ? "pending" : isActive ? "text-[rgb(13,110,253)] underline font-bold" : "")} to="/">
+        <NavLink
+          className={({ isActive, isPending }) => (isPending ? "pending" : isActive ? "text-[rgb(13,110,253)] underline font-bold" : "")}
+          to="/"
+        >
           Home
         </NavLink>
       </li>
       <li className="capitalize font-medium text-[#0F2239] text-base">
-        <NavLink className={({ isActive, isPending }) => (isPending ? "pending" : isActive ? "text-[rgb(13,110,253)] underline font-bold" : "")} to="/">
+        <NavLink
+          className={({ isActive, isPending }) => (isPending ? "pending" : isActive ? "text-[rgb(13,110,253)] underline font-bold" : "")}
+          to="/"
+        >
           About
+        </NavLink>
+      </li>
+      <li className="capitalize font-medium text-[#0F2239] text-base">
+        <NavLink
+          className={({ isActive, isPending }) => (isPending ? "pending" : isActive ? "text-[rgb(13,110,253)] underline font-bold" : "")}
+          to="/allTest"
+        >
+          All Test
         </NavLink>
       </li>
       {/* check admin or not */}
@@ -32,6 +45,12 @@ const Navbar = () => {
           <Link to="/dashboard/adminHome">Dashboard</Link>
         </li>
       )}
+      {
+        user && !isAdmin && 
+        <li>
+        <Link to="/dashboard/userHome">Dashboard</Link>
+      </li>
+      }
       {user ? (
         <>
           <button onClick={handleLogOut} className="btn btn-ghost">
@@ -40,10 +59,10 @@ const Navbar = () => {
         </>
       ) : (
         <>
-        <li>
-          <Link to="/login">
+          <li>
+            <Link to="/login">
               <a>Log In</a>
-          </Link>
+            </Link>
           </li>
         </>
       )}

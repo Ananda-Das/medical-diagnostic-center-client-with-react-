@@ -1,7 +1,8 @@
-import { FaAd, FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaSearch, FaShoppingCart, FaUsers, FaUtensils } from "react-icons/fa";
+import { FaBook, FaEnvelope, FaHome, FaList, FaSearch, FaUsers, FaUtensils } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../../hooks/useAdmin";
-
+import { CgProfile } from "react-icons/cg";
+import { LuTestTube2 } from "react-icons/lu";
 
 const Dashboard = () => {
   //TODO: get is Admin value from the database
@@ -51,23 +52,18 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/reservation">
-                  <FaCalendar></FaCalendar> Reservation
+                <NavLink to="/dashboard/profile">
+                  <CgProfile></CgProfile> Profile
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/cart">
-                  <FaShoppingCart></FaShoppingCart>My Cart
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/review">
-                  <FaAd></FaAd> Review
+                <NavLink to="/dashboard/appointments">
+                  <FaList></FaList>My Appointments
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/dashboard/review">
-                  <FaList></FaList> My Bookings
+                  <LuTestTube2></LuTestTube2> Test Result
                 </NavLink>
               </li>
             </>

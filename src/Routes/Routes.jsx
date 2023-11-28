@@ -13,6 +13,9 @@ import Test from "../pages/Dashboard/Test/Test";
 import UpdateTest from "../pages/Dashboard/UpdateTest/UpdateTest";
 import AddBanner from "../pages/Dashboard/Banner/AddBanner";
 import AllBanner from "../pages/Dashboard/Banner/AllBanner";
+import UserHome from "../pages/Dashboard/UserHome/UserHome";
+import Profile from "../pages/Dashboard/Profile/Profile";
+import Alltests from "../pages/AllTests/Alltests";
 
 const Routes = createBrowserRouter([
   {
@@ -31,12 +34,17 @@ const Routes = createBrowserRouter([
         path: "login",
         element: <Login></Login>,
       },
+      {
+        path: "allTest",
+        element: <Alltests></Alltests>,
+      },
     ],
   },
   {
     path: "/dashboard",
     element: <Dashboard></Dashboard>,
     children: [
+      // Admin Routes
       {
         path: "adminHome",
         element: (
@@ -93,6 +101,18 @@ const Routes = createBrowserRouter([
             <AllBanner></AllBanner>
           </AdminRoutes>
         ),
+      },
+
+      // Admin Route End
+
+      // User Route Start
+      {
+        path: "userHome",
+        element: <UserHome></UserHome>,
+      },
+      {
+        path: "profile",
+        element: <Profile></Profile>,
       },
     ],
   },
