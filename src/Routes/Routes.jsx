@@ -20,6 +20,8 @@ import TestDetail from "../pages/AllTests/TestDetail/TestDetail";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import BookedTest from "../pages/Dashboard/Test/BookedTest";
 import UpdateProfile from "../pages/Dashboard/Profile/UpdateProfile";
+import PrivateRoutes from "./PrivateRoutes";
+import MyBookings from "../pages/Dashboard/MyBookings/MyBookings";
 
 const Routes = createBrowserRouter([
   {
@@ -44,7 +46,11 @@ const Routes = createBrowserRouter([
       },
       {
         path: "test/:id",
-        element: <TestDetail></TestDetail>,
+        element: (
+          <PrivateRoutes>
+            <TestDetail></TestDetail>
+          </PrivateRoutes>
+        ),
         loader: () => fetch("http://localhost:5000/tests"),
       },
     ],
@@ -138,10 +144,13 @@ const Routes = createBrowserRouter([
         loader: ({ params }) => fetch(`http://localhost:5000/singleUser/${params.id}`),
       },
       {
-        // path: "payment/:price",
         path: "payment",
         element: <Payment></Payment>,
       },
+      {
+        path: 'appointments',
+        element: <MyBookings></MyBookings>,
+      }
     ],
   },
 ]);

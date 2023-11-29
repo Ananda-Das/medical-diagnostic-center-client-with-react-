@@ -30,6 +30,13 @@ const CheckoutForm = () => {
 
   const price = testInfo.price;
 
+  const slot = testInfo.slot;
+
+  const oldSlot = parseInt(slot);
+  console.log(oldSlot);
+
+  const [newSlot, setNewSlot] = useState(oldSlot);
+
 
 
   const [error, setError] = useState("");
@@ -116,6 +123,14 @@ const CheckoutForm = () => {
             console.log('payment saved', res.data);
             refetch();
             if (res.data?.paymentResult?.insertedId) {
+
+            //  axiosSecure.patch(`/updateTest/${testId}`).then(res=>{
+            //   console.log(res.data);
+            //  })
+            if(newSlot>0){
+              setNewSlot(newSlot-1);
+            }
+
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
@@ -123,6 +138,8 @@ const CheckoutForm = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
+
+                console.log('after booking Slots', newSlot);
                 // Navigate('/dashboard/paymentHistory')
             }
 
