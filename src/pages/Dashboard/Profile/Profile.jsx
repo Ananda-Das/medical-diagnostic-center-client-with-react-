@@ -1,31 +1,22 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const axiosSecure = useAxiosSecure();
 
   const { user } = useAuth();
 
-  const userEmail = user.email;
-
-  const { data: users = [] } = useQuery({
-    queryKey: ["users"],
+  const { data: singleUser = {} } = useQuery({
+    queryKey: ["users", user?.email],
     queryFn: async () => {
-      const res = await axiosSecure.get("/users");
+      const res = await axiosSecure.get(`/user/${user?.email}`);
       return res.data;
     },
   });
 
-  console.log(userEmail);
-
-  console.log(users);
-
-  const singleUserDetails = users.find((users) => users.email === userEmail);
-
-  console.log(singleUserDetails);
-
-  const { name, email, bloodgrp, district, upazila, role, status } = singleUserDetails;
+  const { name, email, bloodgrp, district, upazila, role, status, _id } = singleUser;
 
   return (
     <div>
@@ -34,7 +25,7 @@ const Profile = () => {
         <div className="overflow-x-auto my-12">
           <table className="table table-zebra">
             {/* head */}
-            
+
             <tbody>
               {/* row 1 */}
               <tr>
@@ -74,7 +65,9 @@ const Profile = () => {
           </table>
         </div>
         <div className="flex justify-end">
-        <button className="btn btn-warning">Update Info</button>
+          <Link to={`/dashboard/updateProfile/${_id}`}>
+            <button className="btn btn-warning">Update Info</button>
+          </Link>
         </div>
       </div>
     </div>

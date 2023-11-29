@@ -118,8 +118,10 @@ const TestDetail = () => {
 
           <p>New Price: {finalPrice}</p>
 
-          {/* <Link to={`/dashboard/payment/${finalPrice}`} > */}
-          <Link to={{ pathname: '/dashboard/payment', state: { finalPrice } }}>
+          {/* <Link to={`/dashboard/payment/?price=${finalPrice}`} > */}
+          <Link to={`/dashboard/payment/?tid=${_id}`} >
+          {/* <Link to={`/dashboard/payment/?tid=${_id}/?price=${finalPrice}`} > */}
+          {/* <Link to={{ pathname: '/dashboard/payment', state: { finalPrice } }}> */}
             <button onClick={handleBooking} className="btn btn-primary">Pay Now</button>
           </Link>
 

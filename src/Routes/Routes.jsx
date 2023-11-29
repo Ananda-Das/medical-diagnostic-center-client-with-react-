@@ -19,6 +19,7 @@ import Alltests from "../pages/AllTests/Alltests";
 import TestDetail from "../pages/AllTests/TestDetail/TestDetail";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import BookedTest from "../pages/Dashboard/Test/BookedTest";
+import UpdateProfile from "../pages/Dashboard/Profile/UpdateProfile";
 
 const Routes = createBrowserRouter([
   {
@@ -130,6 +131,11 @@ const Routes = createBrowserRouter([
       {
         path: "profile",
         element: <Profile></Profile>,
+      },
+      {
+        path: "updateProfile/:id",
+        element: <UpdateProfile></UpdateProfile>,
+        loader: ({ params }) => fetch(`http://localhost:5000/singleUser/${params.id}`),
       },
       {
         // path: "payment/:price",
