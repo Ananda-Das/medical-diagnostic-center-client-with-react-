@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useAuth from "../../../hooks/useAuth";
 
 const TestDetail = () => {
   const testDetials = useLoaderData();
@@ -18,10 +19,11 @@ const TestDetail = () => {
 
   console.log(singleTestDetails);
 
-  const { imageUrl,  price, slot } = singleTestDetails;
+  const { imageUrl, price, slot, _id, date } = singleTestDetails;
 
   const [disprice, Setdisprice] = useState("");
   const [orgiprice, setorgiprice] = useState(price);
+  let finalPrice = disprice ? disprice : orgiprice;
 
   const handleDiscount = async (e) => {
     e.preventDefault();
@@ -31,7 +33,7 @@ const TestDetail = () => {
 
     // console.log(data.discount);
 
-    if(discount != data.couponCodeName){
+    if (discount != data.couponCodeName) {
       Swal.fire({
         position: "top-end",
         icon: "error",
@@ -49,6 +51,35 @@ const TestDetail = () => {
     Setdisprice(newPrice);
     setorgiprice(price);
   };
+
+  const {user} = useAuth()
+  console.log(user);
+
+  const handleBooking = ()=>{
+    //send in the server
+    const bookingInfo ={
+      testId: _id,
+      user: user.email,
+      price: finalPrice,
+      date: date,
+      bookingStatus: false,
+      report: 'pending'
+  }
+
+  axiosSecure.post("/add/booking", bookingInfo).then((res) => {
+      if (res.data.insertedId) {
+        // Swal.fire({
+        //   position: "top-end",
+        //   icon: "success",
+        //   title: "User created successfully.",
+        //   showConfirmButton: false,
+        //   timer: 1500,
+        // });
+        // navigate("/");
+        console.log("success");
+      }
+    });
+  }
 
   return (
     <div>
@@ -85,9 +116,12 @@ const TestDetail = () => {
             <button className="btn btn-info">Apply</button>
           </form>
 
-          <p>New Price: {disprice ? disprice : orgiprice}</p>
+          <p>New Price: {finalPrice}</p>
 
-          <button className="btn btn-primary">Pay Now</button>
+          {/* <Link to={`/dashboard/payment/${finalPrice}`} > */}
+          <Link to={{ pathname: '/dashboard/payment', state: { finalPrice } }}>
+            <button onClick={handleBooking} className="btn btn-primary">Pay Now</button>
+          </Link>
 
           {/* user Info table end */}
         </div>

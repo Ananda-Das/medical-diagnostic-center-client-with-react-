@@ -17,6 +17,7 @@ import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import Profile from "../pages/Dashboard/Profile/Profile";
 import Alltests from "../pages/AllTests/Alltests";
 import TestDetail from "../pages/AllTests/TestDetail/TestDetail";
+import Payment from "../pages/Dashboard/Payment/Payment";
 
 const Routes = createBrowserRouter([
   {
@@ -119,6 +120,11 @@ const Routes = createBrowserRouter([
       {
         path: "profile",
         element: <Profile></Profile>,
+      },
+      {
+        // path: "payment/:price",
+        path: "payment",
+        element: <Payment></Payment>,
       },
     ],
   },

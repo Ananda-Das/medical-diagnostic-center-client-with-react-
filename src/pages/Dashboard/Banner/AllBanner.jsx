@@ -1,12 +1,10 @@
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { useQuery } from "@tanstack/react-query";
+import {  useQuery } from "@tanstack/react-query";
 import { FaTrashAlt } from "react-icons/fa";
 
-
 const AllBanner = () => {
-
-    const axiosSecure = useAxiosSecure();
+  const axiosSecure = useAxiosSecure();
 
   const { data: banners = [], refetch } = useQuery({
     queryKey: ["tests"],
@@ -16,36 +14,52 @@ const AllBanner = () => {
     },
   });
 
-    const handleDeleteTest = (banner) => {
-        // console.log(user);
-        Swal.fire({
-          title: "Are you sure?",
-          text: "Are you want to Delete this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            axiosSecure.delete(`/banner/${banner._id}`).then((res) => {
-              if (res.data.deletedCount > 0) {
-                refetch();
-                Swal.fire({
-                  title: "Deleted!",
-                  text: "Your file has been deleted.",
-                  icon: "success",
-                });
-              }
+  const handleDeleteTest = (banner) => {
+    // console.log(user);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Are you want to Delete this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/banner/${banner._id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
             });
           }
         });
-      };
+      }
+    });
+  };
 
-    return (
-        <div>
-            <h1>All Banners</h1>
-            <div className="overflow-x-auto">
+  const handleToggleActive = async (banner) => {
+    try {
+
+      // Update the isActive status on the server
+      await axiosSecure.patch(`/banners/${banner._id}`, {
+        isActive: !banner.isActive,
+      });
+
+
+      // After the update, refetch the data to get the updated state
+      refetch();
+    } catch (error) {
+      console.error("Error toggling isActive:", error);
+    }
+  };
+
+  return (
+    <div>
+      <h1>All Banners</h1>
+      <div className="overflow-x-auto">
         <table className="table table-zebra">
           {/* head */}
           <thead>
@@ -68,9 +82,7 @@ const AllBanner = () => {
                 <td>{banner?.couponCodeName}</td>
                 <td>{banner?.couponRate}</td>
                 <td>
-                    {
-                        banner?.isActive === false ? 'Deactive' : 'Active'
-                    }
+                  <button className="btn btn-primary btn-sm" onClick={() => handleToggleActive(banner)}>{banner.isActive ? "Deactivate" : "Activate"}</button>
                 </td>
                 <td>
                   <button onClick={() => handleDeleteTest(banner)} className="btn btn-ghost btn-sm">
@@ -82,8 +94,8 @@ const AllBanner = () => {
           </tbody>
         </table>
       </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default AllBanner;
