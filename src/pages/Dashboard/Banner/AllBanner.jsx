@@ -80,7 +80,7 @@ const AllBanner = () => {
                 <td>{banner?.name}</td>
                 <td>{banner?.title}</td>
                 <td>{banner?.couponCodeName}</td>
-                <td>{banner?.couponRate}</td>
+                <td>{banner?.couponRate} %</td>
                 <td>
                   <button className="btn btn-primary btn-sm" onClick={() => handleToggleActive(banner)}>{banner.isActive ? "Deactivate" : "Activate"}</button>
                 </td>

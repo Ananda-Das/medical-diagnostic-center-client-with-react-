@@ -4,6 +4,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { GrUpdate } from "react-icons/gr";
 import { Link } from "react-router-dom";
+import { TbBrandBooking } from "react-icons/tb";
 
 const Test = () => {
   const axiosSecure = useAxiosSecure();
@@ -64,7 +65,9 @@ const Test = () => {
               <tr key={test._id}>
                 <th>{index + 1}</th>
                 <td>{test?.name}</td>
-                <td>{test?.imageUrl}</td>
+                <td className="w-20 h-20">
+                  <img src={test?.imageUrl} alt="" />
+                </td>
                 <td>{test?.price}</td>
                 <td>{test?.date}</td>
                 <td>{test?.slot}</td>
@@ -77,6 +80,11 @@ const Test = () => {
                   <button onClick={() => handleDeleteTest(test)} className="btn btn-ghost btn-sm">
                     <FaTrashAlt className="text-red-600"></FaTrashAlt>
                   </button>
+                  <Link to={`/dashboard/bookedTest/${test._id}`}k>
+                    <button className="btn btn-ghost btn-sm">
+                      <TbBrandBooking />
+                    </button>
+                  </Link>
                 </td>
               </tr>
             ))}

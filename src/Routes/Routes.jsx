@@ -18,6 +18,7 @@ import Profile from "../pages/Dashboard/Profile/Profile";
 import Alltests from "../pages/AllTests/Alltests";
 import TestDetail from "../pages/AllTests/TestDetail/TestDetail";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import BookedTest from "../pages/Dashboard/Test/BookedTest";
 
 const Routes = createBrowserRouter([
   {
@@ -89,6 +90,15 @@ const Routes = createBrowserRouter([
         element: (
           <AdminRoutes>
             <UpdateTest></UpdateTest>
+          </AdminRoutes>
+        ),
+        loader: ({ params }) => fetch(`http://localhost:5000/test/${params.id}`),
+      },
+      {
+        path: "bookedTest/:id",
+        element: (
+          <AdminRoutes>
+            <BookedTest></BookedTest>
           </AdminRoutes>
         ),
         loader: ({ params }) => fetch(`http://localhost:5000/test/${params.id}`),
