@@ -1,17 +1,14 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
+const MyTestPage = ({ card }) => {
+  // eslint-disable-next-line no-unused-vars
+  const [data, setData] = useState(card);
 
-const MyTestPage = ({card}) => {
-
-    // eslint-disable-next-line no-unused-vars
-    const [data, setData] = useState(card);
-
-    console.log(data);
-    return (
-        <div>
-            
-            <div className="overflow-x-auto">
+  console.log(data);
+  return (
+    <div>
+      <div className="overflow-x-auto">
         <table className="table table-zebra">
           {/* head */}
           <thead>
@@ -29,17 +26,15 @@ const MyTestPage = ({card}) => {
                 <td>{data.price}</td>
                 <td>{data.transactionId}</td>
                 <td>
-                  <button  className="btn btn-ghost btn-sm"> {data.status}
-                  </button>
+                  <button className="btn btn-ghost btn-sm"> {data.status}</button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-            
-        </div>
-    );
+    </div>
+  );
 };
 
 export default MyTestPage;

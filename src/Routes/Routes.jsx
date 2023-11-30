@@ -23,6 +23,8 @@ import UpdateProfile from "../pages/Dashboard/Profile/UpdateProfile";
 import PrivateRoutes from "./PrivateRoutes";
 import MyBookings from "../pages/Dashboard/MyBookings/MyBookings";
 import MyTestResult from "../pages/Dashboard/MyTestResult/MyTestResult";
+import AllBookings from "../pages/Dashboard/AllBookings/AllBookings";
+import UpdateBooking from "../pages/Dashboard/AllBookings/UpdateBooking";
 
 const Routes = createBrowserRouter([
   {
@@ -127,6 +129,23 @@ const Routes = createBrowserRouter([
           </AdminRoutes>
         ),
       },
+      {
+        path: "allbookings",
+        element: (
+          <AdminRoutes>
+            <AllBookings></AllBookings>
+          </AdminRoutes>
+        ),
+      },
+      {
+        path: "updatePayment/:id",
+        element: (
+          <AdminRoutes>
+            <UpdateBooking></UpdateBooking>
+          </AdminRoutes>
+        ),
+        loader: ({ params }) => fetch(`http://localhost:5000/single/payments/${params.id}`),
+      },
 
       // Admin Route End
 
@@ -149,13 +168,13 @@ const Routes = createBrowserRouter([
         element: <Payment></Payment>,
       },
       {
-        path: 'appointments',
+        path: "appointments",
         element: <MyBookings></MyBookings>,
       },
       {
-        path: 'testResult',
-        element: <MyTestResult></MyTestResult>
-      }
+        path: "testResult",
+        element: <MyTestResult></MyTestResult>,
+      },
     ],
   },
 ]);
