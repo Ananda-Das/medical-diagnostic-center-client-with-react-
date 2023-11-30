@@ -22,6 +22,7 @@ import BookedTest from "../pages/Dashboard/Test/BookedTest";
 import UpdateProfile from "../pages/Dashboard/Profile/UpdateProfile";
 import PrivateRoutes from "./PrivateRoutes";
 import MyBookings from "../pages/Dashboard/MyBookings/MyBookings";
+import MyTestResult from "../pages/Dashboard/MyTestResult/MyTestResult";
 
 const Routes = createBrowserRouter([
   {
@@ -150,6 +151,10 @@ const Routes = createBrowserRouter([
       {
         path: 'appointments',
         element: <MyBookings></MyBookings>,
+      },
+      {
+        path: 'testResult',
+        element: <MyTestResult></MyTestResult>
       }
     ],
   },

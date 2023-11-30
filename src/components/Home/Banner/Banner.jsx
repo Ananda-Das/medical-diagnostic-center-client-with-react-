@@ -1,66 +1,36 @@
-
-import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useEffect, useState } from "react";
-
+import BannerInfo from "./BannerInfo";
 
 const Banner = () => {
+  const axiosPublic = useAxiosPublic();
 
-  const axiosPublic= useAxiosPublic();
+ 
 
-  // const [bannerData, setBannerData] = useState([]);
+  const [activeBanner, setActiveBanner] = useState([]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await axiosPublic.get(`/banners`);
+      const filteredData = res?.data?.filter((banner) => banner.isActive === true);
+      setActiveBanner(filteredData);
+    };
+    fetchData();
+  }, [axiosPublic]);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const res = await axiosPublic.get(`/banners`);
-  //     //   console.log(res.data);
-  //     const filteredData = res?.data?.filter((test) => test.isActive === true);
-  //     setBannerData(filteredData);
-  //   };
-  //   fetchData();
-  // }, [axiosPublic]);
+  console.log(activeBanner.name);
 
-  // console.log(bannerData);
-
-  const { data: bannerInfo = {} } = useQuery({
-    queryKey: ["bannerInfo"],
-    queryFn: async () => {
-      const res = await axiosPublic.get(`/banners/?isActive=${true}`);
-      return res.data;
-    },
-  });
-
-  console.log(bannerInfo);
-
-
-  // const { data: banners = [] } = useQuery({
-  //   queryKey: ["banners"],
-  //   queryFn: async () => {
-  //     const res = await axiosPublic.get("/banners");
-  //     return res.data;
-  //   },
-  // });
-
-  // console.log(banners);
-
-  // const activeBanner = banners.find((banner) => banner.isActive === true);
-
-  // console.log(activeBanner);
+  
 
   return (
     <div className="flex justify-center items-center gap-3 bg-[#004552] h-screen">
-      {/* <div>
-        <h1 className="text-7xl"></h1>
-        <p className="text-3xl">Text</p>
-        <button className="btn btn-primary">All Test</button>
+      
+
+      <div>
+        {
+          activeBanner.map(item=> <BannerInfo key={item._id} item={item}></BannerInfo>)
+        }
       </div>
-      <div className="max-h-screen">
-        <img className="w-[60%]" src="https://mida.peerduck.com/wp-content/uploads/2023/03/k4lmtg-1024x1000.png" alt="" />
-      </div> */}
-
-
-
     </div>
   );
 };

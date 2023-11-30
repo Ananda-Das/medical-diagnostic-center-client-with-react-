@@ -63,7 +63,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/review">
+                <NavLink to="/dashboard/testResult">
                   <LuTestTube2></LuTestTube2> Test Result
                 </NavLink>
               </li>

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import BookingCard from "./BookingCard";
+import MyTestPage from "./MyTestPage";
 
-const MyBookings = () => {
+const MyTestResult = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
@@ -23,12 +23,12 @@ const MyBookings = () => {
 
   return (
     <div>
-      <h1>MY Booked Tests: {myTest && myTest?.length}</h1>
-      <div className="grid grid-cols-2 gap-5 justify-center items-center">
-        {myTest && myTest?.map((card) => <BookingCard key={card._id} card={card}></BookingCard>)}
+      <h1>My Tests Results</h1>
+      <div className="">
+        {myTest && myTest?.map((card) => <MyTestPage key={card._id} card={card}></MyTestPage>)}
       </div>
     </div>
   );
 };
 
-export default MyBookings;
+export default MyTestResult;
