@@ -23,7 +23,7 @@ const Banner = () => {
   
 
   return (
-    <div className="flex justify-center items-center gap-3 bg-[#004552] h-screen">
+    <div >
       
 
       <div>
