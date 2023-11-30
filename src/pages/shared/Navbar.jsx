@@ -39,33 +39,6 @@ const Navbar = () => {
           All Test
         </NavLink>
       </li>
-      {/* check admin or not */}
-      {user && isAdmin && (
-        <li>
-          <Link to="/dashboard/adminHome">Dashboard</Link>
-        </li>
-      )}
-      {
-        user && !isAdmin && 
-        <li>
-        <Link to="/dashboard/userHome">Dashboard</Link>
-      </li>
-      }
-      {user ? (
-        <>
-          <button onClick={handleLogOut} className="btn btn-ghost">
-            Log Out
-          </button>
-        </>
-      ) : (
-        <>
-          <li>
-            <Link to="/login">
-              <a>Log In</a>
-            </Link>
-          </li>
-        </>
-      )}
     </>
   );
   return (
@@ -85,6 +58,52 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex navbar-end">
         <ul className="menu menu-horizontal px-1">{navLink}</ul>
+        {user ? (
+          <>
+            {/* test  */}
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img src={user.photoURL} />
+                </div>
+              </label>
+              <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                <li>
+                  {/* <a className="justify-between">
+                      Profile
+                    </a> */}
+                  {user && isAdmin && (
+                    <li>
+                      <Link to="/dashboard/adminHome">Dashboard</Link>
+                    </li>
+                    // <Link to="/dashboard/adminHome"><li>Dashboard</li></Link>
+                  )}
+                  {user && !isAdmin && (
+                    <li>
+                      <Link to="/dashboard/userHome">Dashboard</Link>
+                    </li>
+                  )}
+                </li>
+                <li>
+                  <a>Settings</a>
+                </li>
+                <li>
+                  <button onClick={handleLogOut}>Logout</button>
+                </li>
+              </ul>
+            </div>
+            {/* test  */}
+          </>
+        ) : (
+          <div className="capitalize font-medium text-[#0F2239] text-base">
+            <NavLink
+              className={({ isActive, isPending }) => (isPending ? "pending" : isActive ? "text-[#0d6efd] underline font-bold" : "")}
+              to="/login"
+            >
+              Login
+            </NavLink>
+          </div>
+        )}
       </div>
       {/* <div className="navbar-end">
         <a className="btn">Button</a>

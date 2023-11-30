@@ -11,15 +11,15 @@ const TestDetail = () => {
 
   const { id } = useParams();
 
-  console.log(id);
+  // console.log(id);
 
   // const { user } = useAuth();
 
   const singleTestDetails = testDetials.find((testDetials) => testDetials._id === id);
 
-  console.log(singleTestDetails);
+  // console.log(singleTestDetails);
 
-  const { imageUrl, price, slot, _id, date } = singleTestDetails;
+  const { imageUrl, name, price, details, slot, _id, date } = singleTestDetails;
 
   const [disprice, Setdisprice] = useState("");
   const [orgiprice, setorgiprice] = useState(price);
@@ -83,10 +83,24 @@ const TestDetail = () => {
 
   return (
     <div>
-      <div className="w-full">
-        <img className="w-[70%] mx-auto" src={imageUrl} alt="" />
+      <h1 className="text-4xl font-bold ml-10 py-7">{name} Details</h1>
+      <div className="w-[30%] h-[30%] mx-auto">
+        <img className="w-full mx-auto" src={imageUrl} alt="" />
       </div>
-      <div>
+      <div className="flex justify-center items-center gap-7 py-7">
+        <div>
+          <p>Avaiable Date: <span className="text-red-500 font-bold">{date}</span></p>
+        </div>
+        <div>
+        <p>Avaiable Slot: <span>{slot}</span></p>
+        </div>
+      </div>
+
+      <div className="w-4/5 mx-auto">
+        <p className="text-lg">{details}</p>
+      </div>
+
+      <div className="w-4/5 mx-auto flex justify-end mb-10">
         {slot > 0 ? (
           <button
             onClick={() => {

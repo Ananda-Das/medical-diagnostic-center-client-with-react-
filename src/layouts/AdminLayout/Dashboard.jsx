@@ -1,8 +1,9 @@
-import { FaBook, FaEnvelope, FaHome, FaList, FaSearch, FaUsers, FaUtensils } from "react-icons/fa";
+import { FaBook, FaEnvelope, FaHome, FaList, FaUsers, FaUtensils } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../../hooks/useAdmin";
 import { CgProfile } from "react-icons/cg";
 import { LuTestTube2 } from "react-icons/lu";
+import { GiHypodermicTest } from "react-icons/gi";
 
 const Dashboard = () => {
   //TODO: get is Admin value from the database
@@ -76,8 +77,8 @@ const Dashboard = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/shop">
-              <FaSearch></FaSearch> Menu
+            <NavLink to="/allTest">
+              <GiHypodermicTest></GiHypodermicTest> All Test
             </NavLink>
           </li>
           <li>

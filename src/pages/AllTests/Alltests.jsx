@@ -35,17 +35,26 @@ const Alltests = () => {
 
   return (
     <div>
-      <label>
-        Filter by Date:
-        <input type="date" value={dateFilter} onChange={(e) => setDateFilter(e.target.value)} />
-      </label>
-      <button onClick={filterTestsByDate}>Apply Filter</button>
+      <div className="w-3/5 mx-auto py-12">
+        <label>
+          Filter by Date:
+          <input
+            className="input input-bordered input-accent w-full max-w-xs"
+            type="date"
+            value={dateFilter}
+            onChange={(e) => setDateFilter(e.target.value)}
+          />
+        </label>
+        <button className="btn btn-info ml-3" onClick={filterTestsByDate}>
+          Apply Filter
+        </button>
+      </div>
 
       {filteredTests.length === 0 ? (
         <p>No tests available for the selected date.</p>
       ) : (
         <>
-          <div className="grid grid-cols-3 justify-center items-center gap-3">
+          <div className="grid grid-cols-3 justify-center items-center gap-3 w-11/12 mx-auto">
             {filteredTests.map((test) => (
               <TestCard key={test._id} test={test}></TestCard>
             ))}

@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Complete Blood Count (CBC)",
+    "imageUrl": "https://www.metropolisindia.com/upgrade/blog/upload/2023/01/CBC-Test_-What-Is-CBC-And-How-To-Prepare-For-It_.jpg",
+    "price": 50,
+    "date": "2023-12-15",
+    "details": "A comprehensive blood test to assess overall health. This test provides valuable information about the quantity and quality of blood cells, including red blood cells, white blood cells, and platelets. It helps diagnose various conditions such as anemia, infection, and leukemia. The results of the Complete Blood Count (CBC) can give insights into the body's immune system and overall well-being. The procedure is quick and painless, involving a simple blood draw. Results are usually available within a day. Ensure you are well-hydrated before the test for accurate results. Contact our center for more information.",
+    "slot": 11
+  },
+  {
+    "name": "Lipid Profile",
+    "imageUrl": "https://www.medindia.net/health-screening-test/images/Lipid-Profile-Screening.jpg",
+    "price": 45,
+    "date": "2023-12-16",
+    "details": "Measures cholesterol levels for cardiovascular health. The Lipid Profile test is crucial in assessing the risk of heart disease and stroke. It includes measurements of total cholesterol, LDL (low-density lipoprotein), HDL (high-density lipoprotein), and triglycerides. Maintaining healthy lipid levels is essential for a healthy heart. The test requires fasting for accurate results. Our experienced staff ensures a comfortable and efficient testing experience. Book your Lipid Profile test today and take a proactive step towards cardiovascular health.",
+    "slot": 12
+  },
+  {
+    "name": "Thyroid Function Test (TFT)",
+    "imageUrl": "https://www.annapharmacy.com/wp-content/uploads/2022/06/full-thyroid-blood-test.jpg",
+    "price": 35,
+    "date": "2023-12-17",
+    "details": "Evaluates thyroid gland function. The Thyroid Function Test (TFT) is a panel of blood tests that assess the thyroid's ability to produce hormones essential for metabolism and energy regulation. It includes measurements of TSH (thyroid-stimulating hormone), T3 (triiodothyronine), and T4 (thyroxine). Thyroid disorders can impact various bodily functions. Early detection through TFT is crucial for effective management. The test is simple and provides valuable insights into thyroid health. Consult our experts for personalized guidance on thyroid testing and care.",
+    "slot": 13
+  },
+  {
+    "name": "Liver Function Test (LFT)",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGNgGaYZIzoiyeyn6kBtjPvokp6HJtxeokuWNpouYYQdBVEJu9aoyo4Ozc_Dx48SFIytI&usqp=CAU",
+    "price": 55,
+    "date": "2023-12-18",
+    "details": "Assesses liver health and function. The Liver Function Test (LFT) is a series of blood tests that evaluate the liver's performance. It measures enzymes, proteins, and other substances produced or processed by the liver. Abnormal LFT results may indicate liver diseases or conditions. Early detection is vital for effective intervention and treatment. The test is relatively quick, requiring a blood sample. Our skilled professionals ensure a seamless testing experience. Schedule your LFT to monitor and maintain liver health.",
+    "slot": 14
+  },
+  {
+    "name": "Renal Function Test (RFT)",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIAUKxvIf3iXgu1wSwUooKLga2osAeh2FH17A690fcy831T-k2WZSYZVJ8-GhLSXozR9s&usqp=CAU",
+    "price": 60,
+    "date": "2023-12-19",
+    "details": "Checks kidney function and electrolyte balance. The Renal Function Test (RFT) assesses the kidneys' ability to filter and eliminate waste from the blood. It includes measurements of creatinine, blood urea nitrogen (BUN), and electrolytes. RFT aids in detecting kidney disorders and imbalances. Timely assessment is crucial for preventing kidney disease progression. The test involves a simple blood draw and, in some cases, a urine sample. Contact our center for expert guidance on kidney health and RFT.",
+    "slot": 15
+  },
+  {
+    "name": "Blood Sugar (Fasting)",
+    "imageUrl": "https://img.freepik.com/free-photo/hand-holding-blood-glucose-meter-measuring-blood-sugar-background-is-stethoscope-chart-file_1387-942.jpg?size=626&ext=jpg",
+    "price": 25,
+    "date": "2023-12-20",
+    "details": "Measures glucose levels after fasting. The Blood Sugar (Fasting) test evaluates blood glucose levels after an overnight fast. It is essential for diagnosing diabetes and monitoring glucose control. Fasting ensures accurate results by eliminating the influence of recent meals. The test involves a simple blood draw. Our proficient staff ensures a comfortable and efficient testing process. Early detection and management of abnormal glucose levels are crucial for overall health. Schedule your Blood Sugar (Fasting) test with us for comprehensive diabetes screening.",
+    "slot": 16
+  },
+  {
+    "name": "Vitamin D Test",
+    "imageUrl": "https://media.istockphoto.com/id/941913222/photo/vitamin-d-test.jpg?s=1024x1024&w=is&k=20&c=9Rtgdo1QB8nBsUzeL4JNE6WKj1K3At0Gy_Op3Eo4OWo=",
+    "price": 40,
+    "date": "2023-12-21",
+    "details": "Assesses vitamin D levels for bone health. The Vitamin D Test measures the concentration of vitamin D in the blood, essential for bone health and overall well-being. Adequate vitamin D is crucial for calcium absorption, bone strength, and immune function. Deficiency can lead to various health issues. The test involves a simple blood draw. Our expert team provides accurate and timely results. Ensure your vitamin D levels are optimal for a healthy and active lifestyle. Schedule your Vitamin D Test today.",
+    "slot": 17
+  },
+  {
+    "name": "Complete Urinalysis",
+    "imageUrl": "https://t3.ftcdn.net/jpg/02/36/42/38/240_F_236423884_dEmV4MxrMNvHGadreZ5j0YOB2fQryoTR.jpg",
+    "price": 30,
+    "date": "2023-12-22",
+    "details": "Examines urine for signs of various health conditions. The Complete Urinalysis test evaluates urine for the presence of abnormalities, providing insights into kidney function and overall health. It checks for signs of kidney disease, diabetes, and urinary tract infections. The test involves providing a urine sample. Our proficient staff ensures a hygienic and comfortable experience. Early detection of urinary abnormalities is crucial for prompt intervention. Schedule your Complete Urinalysis for a comprehensive assessment of your urinary health.",
+    "slot": 18
+  },
+  {
+    "name": "Electrocardiogram (ECG)",
+    "imageUrl": "https://medlineplus.gov/ency/images/ency/fullsize/1135.jpg",
+    "price": 50,
+    "date": "2023-12-23",
+    "details": "Records the electrical activity of the heart. The Electrocardiogram (ECG) test records the heart's electrical activity, providing valuable information about its rhythm and function. It is a non-invasive and painless procedure that helps diagnose heart conditions such as arrhythmias and ischemia. ECG is often performed as part of routine health check-ups and in response to specific symptoms. Our skilled technicians ensure accurate and timely results. Schedule your ECG for a comprehensive assessment of your heart health.",
+    "slot": 19
+  },
+  {
+    "name": "X-ray (Chest)",
+    "imageUrl": "https://www.meddean.luc.edu/lumen/meded/medicine/pulmonar/cxr/atlas/images/71bl.jpg",
+    "price": 35,
+    "date": "2023-12-24",
+    "details": "Captures images of the chest for diagnostic purposes. The X-ray (Chest) test captures detailed images of the chest, providing insights into the lungs, heart, and surrounding structures. It is commonly used to diagnose respiratory conditions, heart issues, and injuries. The test is quick and painless, involving exposure to a small amount of radiation. Our state-of-the-art equipment ensures high-quality images. Schedule your X-ray (Chest) for a comprehensive assessment of your chest and respiratory health.",
+    "slot": 20
+  },
+  {
+    "name": "Ultrasound (Abdomen)",
+    "imageUrl": "https://static.wixstatic.com/media/d2b1b4_ca813a402abaf29a6e962cfd1685c491.jpg/v1/fill/w_314,h_256,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Liver%2Band%2BRT%2Bkidney.jpg",
+    "price": 65,
+    "date": "2023-12-25",
+    "details": "Uses sound waves to visualize abdominal organs. The Ultrasound (Abdomen) test uses sound waves to create real-time images of the abdominal organs, including the liver, kidneys, and gallbladder. It is a non-invasive and safe procedure that aids in diagnosing conditions such as liver disease, kidney stones, and abdominal pain. Our skilled sonographers ensure a comfortable and informative experience. Schedule your Ultrasound (Abdomen) for detailed insights into your abdominal health.",
+    "slot": 21
+  },
+  {
+    "name": "Allergy Panel",
+    "imageUrl": "https://media.istockphoto.com/id/147787621/photo/skin-prick-allergy-test.jpg?s=612x612&w=0&k=20&c=zXQOY62fR41JBOobLEnKnRvOa8qkfsiG4QYLIhojDY4=",
+    "price": 55,
+    "date": "2023-12-26",
+    "details": "Identifies allergies to common substances. The Allergy Panel test identifies allergic reactions to common substances, helping individuals manage and avoid allergens. It includes tests for various allergens such as pollen, dust mites, and certain foods. Our comprehensive allergy panel provides valuable information for personalized allergy management. The test involves a blood sample. Schedule your Allergy Panel to take control of your allergic reactions and improve your quality of life.",
+    "slot": 22
+  },
+  {
+    "name": "PSA (Prostate-Specific Antigen)",
+    "imageUrl": "https://media.istockphoto.com/id/872496924/photo/psa-positive.jpg?s=612x612&w=0&k=20&c=dT-Qo_RSH0VUdzd60H4FaPAk8zq8QzLCb7gd_1xSwOo=",
+    "price": 40,
+    "date": "2023-12-27",
+    "details": "Measures PSA levels for prostate health. The PSA (Prostate-Specific Antigen) test measures the levels of PSA in the blood, aiding in the early detection of prostate issues, including cancer. It is a crucial screening tool for men's health. The test involves a simple blood draw. Our experienced professionals ensure accurate and timely results. Schedule your PSA test for proactive monitoring of your prostate health.",
+    "slot": 23
+  },
+  {
+    "name": "HbA1c (Glycated Hemoglobin)",
+    "imageUrl": "https://t4.ftcdn.net/jpg/00/60/53/33/240_F_60533374_pLDWbqobAokCivY0ZEeItbK1QroYrmaX.jpg",
+    "price": 45,
+    "date": "2023-12-28",
+    "details": "Reflects average blood sugar levels over several months. The HbA1c (Glycated Hemoglobin) test reflects average blood sugar levels over the past two to three months, providing a comprehensive view of glucose control. It is a valuable tool for managing diabetes and assessing overall metabolic health. The test involves a simple blood draw. Our expert team ensures accurate and timely results. Schedule your HbA1c test for proactive diabetes management and overall well-being.",
+    "slot": 24
+  },
+  {
+    "name": "Bone Density Scan",
+    "imageUrl": "https://www.radnet.com/sites/services/files/field_service_image/services-procedure-bone-density.png",
+    "price": 60,
+    "date": "2023-12-29",
+    "details": "Evaluates bone strength and density. The Bone Density Scan assesses bone strength and density, aiding in the diagnosis and management of conditions such as osteoporosis. It is a painless and non-invasive procedure that uses low-dose X-rays. The test provides valuable information for maintaining bone health. Our advanced technology ensures accurate and precise results. Schedule your Bone Density Scan for proactive bone health management.",
+    "slot": 25
+  }
+]
