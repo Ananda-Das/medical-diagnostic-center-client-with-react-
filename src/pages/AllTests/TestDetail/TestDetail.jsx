@@ -29,7 +29,7 @@ const TestDetail = () => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const discount = form.get("discount");
-    const { data } = await axiosSecure(`http://localhost:5000/banners/${discount}`);
+    const { data } = await axiosSecure(`https://diagnostic-center-management-server-smoky.vercel.app/banners/${discount}`);
 
     // console.log(data.discount);
 
