@@ -26,7 +26,7 @@ const Navbar = () => {
       <li className="capitalize font-medium text-[#0F2239] text-base">
         <NavLink
           className={({ isActive, isPending }) => (isPending ? "pending" : isActive ? "text-[rgb(13,110,253)] underline font-bold" : "")}
-          to="/"
+          to="/about"
         >
           About
         </NavLink>
@@ -54,7 +54,7 @@ const Navbar = () => {
             {navLink}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl">Medicare</a>
       </div>
       <div className="navbar-center hidden lg:flex navbar-end">
         <ul className="menu menu-horizontal px-1">{navLink}</ul>

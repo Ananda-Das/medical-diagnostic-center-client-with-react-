@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
@@ -14,6 +14,7 @@ const Registration = () => {
   const [upazila, setUpazila] = useState();
   const axiosPublic = useAxiosPublic();
   const { createuser, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://raw.githubusercontent.com/nuhil/bangladesh-geocode/master/districts/districts.json")
@@ -40,7 +41,6 @@ const Registration = () => {
     formState: { errors },
   } = useForm();
 
-
   const onSubmit = async (data) => {
     console.log(data);
     //image uploda to imagebb and then get an url
@@ -52,19 +52,22 @@ const Registration = () => {
     });
     if (res.data.success) {
       console.log("success");
-    }
+
+      console.log(res.data);
+    
 
     //send in server
     createuser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
-      updateUserProfile(data.name, data.photoURL)
+      updateUserProfile(data.name, res.data.data.display_url)
         .then(() => {
           // console.log("user profile info updated");
           //create user entry in the database
           const userInfo = {
             name: data.name,
             email: data.email,
+            image: res.data.data.display_url,
             bloodgrp: data.bloodgrp,
             district: data.district,
             upazila: data.upazila,
@@ -80,7 +83,7 @@ const Registration = () => {
                 showConfirmButton: false,
                 timer: 1500,
               });
-              // navigate("/");
+              navigate('/');
               console.log("success");
             }
           });
@@ -88,6 +91,7 @@ const Registration = () => {
         })
         .catch((error) => console.log(error));
     });
+    }
   };
 
   return (

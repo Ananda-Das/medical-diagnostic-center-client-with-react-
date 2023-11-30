@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 
+import { Link } from "react-router-dom";
+
 
 const BannerInfo = ({item}) => {
     const { title, image, description, couponCodeName, couponRate} = item;
@@ -10,7 +12,7 @@ const BannerInfo = ({item}) => {
                 <p className="text-lg">{description}</p>
                 <p className="text-3xl"> Use <span className="font-bold">{couponCodeName}</span> Code to <br /> get <span className="text-red-600 font-bold">{couponRate}%</span> Discount</p>
 
-                <button className="btn btn-primary">All Test</button>
+                <Link to="/allTest"><button className="btn btn-primary mt-5">All Test</button></Link>
 
             </div>
             <div>
