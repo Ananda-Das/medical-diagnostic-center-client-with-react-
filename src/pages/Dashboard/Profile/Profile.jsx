@@ -16,6 +16,8 @@ const Profile = () => {
     },
   });
 
+  console.log(singleUser);
+
   const { name, email, bloodgrp, district, upazila, role, status, _id } = singleUser;
 
   return (

@@ -54,7 +54,7 @@ const Routes = createBrowserRouter([
             <TestDetail></TestDetail>
           </PrivateRoutes>
         ),
-        loader: () => fetch("https://diagnostic-center-management-server-smoky.vercel.app/tests"),
+        loader: () => fetch("http://localhost:5000/tests"),
       },
     ],
   },
@@ -102,7 +102,7 @@ const Routes = createBrowserRouter([
             <UpdateTest></UpdateTest>
           </AdminRoutes>
         ),
-        loader: ({ params }) => fetch(`https://diagnostic-center-management-server-smoky.vercel.app/test/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/test/${params.id}`),
       },
       {
         path: "bookedTest/:id",
@@ -111,7 +111,7 @@ const Routes = createBrowserRouter([
             <BookedTest></BookedTest>
           </AdminRoutes>
         ),
-        loader: ({ params }) => fetch(`https://diagnostic-center-management-server-smoky.vercel.app/test/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/test/${params.id}`),
       },
       {
         path: "addBanners",
@@ -144,7 +144,7 @@ const Routes = createBrowserRouter([
             <UpdateBooking></UpdateBooking>
           </AdminRoutes>
         ),
-        loader: ({ params }) => fetch(`https://diagnostic-center-management-server-smoky.vercel.app/single/payments/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/single/payments/${params.id}`),
       },
 
       // Admin Route End
@@ -161,7 +161,7 @@ const Routes = createBrowserRouter([
       {
         path: "updateProfile/:id",
         element: <UpdateProfile></UpdateProfile>,
-        loader: ({ params }) => fetch(`https://diagnostic-center-management-server-smoky.vercel.app/singleUser/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/singleUser/${params.id}`),
       },
       {
         path: "payment",

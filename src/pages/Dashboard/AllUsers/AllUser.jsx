@@ -60,7 +60,7 @@ const AllUsers = () => {
   };
 
   const handleUserInfo = (user) => {
-    axiosSecure.get(`/user/${user._id}`).then((res) => {
+    axiosSecure.get(`/single/user/${user._id}`).then((res) => {
       setUserInfo(res.data);
     });
   };
