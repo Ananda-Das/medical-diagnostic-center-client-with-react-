@@ -52,21 +52,23 @@ const TestDetail = () => {
     setorgiprice(price);
   };
 
-  const {user} = useAuth()
-  console.log(user);
+  const { user } = useAuth();
+  // console.log(user);
 
-  const handleBooking = ()=>{
+  const role = user.status;
+
+  const handleBooking = () => {
     //send in the server
-    const bookingInfo ={
+    const bookingInfo = {
       testId: _id,
       user: user.email,
       price: finalPrice,
       date: date,
       bookingStatus: false,
-      report: 'pending'
-  }
+      report: "pending",
+    };
 
-  axiosSecure.post("/add/booking", bookingInfo).then((res) => {
+    axiosSecure.post("/add/booking", bookingInfo).then((res) => {
       if (res.data.insertedId) {
         // Swal.fire({
         //   position: "top-end",
@@ -79,7 +81,7 @@ const TestDetail = () => {
         console.log("success");
       }
     });
-  }
+  };
 
   return (
     <div>
@@ -89,10 +91,14 @@ const TestDetail = () => {
       </div>
       <div className="flex justify-center items-center gap-7 py-7">
         <div>
-          <p>Avaiable Date: <span className="text-red-500 font-bold">{date}</span></p>
+          <p>
+            Avaiable Date: <span className="text-red-500 font-bold">{date}</span>
+          </p>
         </div>
         <div>
-        <p>Avaiable Slot: <span>{slot}</span></p>
+          <p>
+            Avaiable Slot: <span>{slot}</span>
+          </p>
         </div>
       </div>
 
@@ -101,17 +107,25 @@ const TestDetail = () => {
       </div>
 
       <div className="w-4/5 mx-auto flex justify-end mb-10">
-        {slot > 0 ? (
-          <button
-            onClick={() => {
-              document.getElementById("my_modal_2").showModal();
-            }}
-            className="btn btn-info"
-          >
-            Book Now
-          </button>
+        {role == true ? (
+          <>
+            {slot > 0 ? (
+              <button
+                onClick={() => {
+                  document.getElementById("my_modal_2").showModal();
+                }}
+                className="btn btn-info"
+              >
+                Book Now
+              </button>
+            ) : (
+              <p>No Slot Available</p>
+            )}
+          </>
         ) : (
-          <p>No Slot Available</p>
+          <>
+          <h1 className="text-red-600 text-xl font-bold">You are Blocked By Admin</h1>
+          </>
         )}
       </div>
 
@@ -133,10 +147,13 @@ const TestDetail = () => {
           <p>New Price: {finalPrice}</p>
 
           {/* <Link to={`/dashboard/payment/?price=${finalPrice}`} > */}
-          <Link to={`/dashboard/payment/?tid=${_id}`} >
-          {/* <Link to={`/dashboard/payment/?tid=${_id}/?price=${finalPrice}`} > */}
-          {/* <Link to={{ pathname: '/dashboard/payment', state: { finalPrice } }}> */}
-            <button onClick={handleBooking} className="btn btn-primary">Pay Now</button>
+          <Link to={`/dashboard/payment/?tid=${_id}`}>
+            {/* <Link to={`/dashboard/payment/?tid=${_id}/?price=${finalPrice}`} > */}
+            {/* <Link to={{ pathname: '/dashboard/payment', state: { finalPrice } }}> */}
+
+            <button onClick={handleBooking} className="btn btn-primary">
+              Pay Now
+            </button>
           </Link>
 
           {/* user Info table end */}
