@@ -56,47 +56,12 @@ const AddBanner = () => {
           console.log("success");
         }
       });
-
-    //send in server
-    // createuser(data.email, data.password).then((result) => {
-    //   const loggedUser = result.user;
-    //   console.log(loggedUser);
-    //   updateUserProfile(data.name, data.photoURL)
-    //     .then(() => {
-    //       // console.log("user profile info updated");
-    //       //create user entry in the database
-    //       const userInfo = {
-    //         name: data.name,
-    //         email: data.email,
-    //         bloodgrp: data.bloodgrp,
-    //         district: data.district,
-    //         upazila: data.upazila,
-    //         status: "Active",
-    //         role: "user",
-    //       };
-    //       axiosSecure.post("/users", userInfo).then((res) => {
-    //         if (res.data.insertedId) {
-    //           Swal.fire({
-    //             position: "top-end",
-    //             icon: "success",
-    //             title: "User created successfully.",
-    //             showConfirmButton: false,
-    //             timer: 1500,
-    //           });
-    //           // navigate("/");
-    //           console.log("success");
-    //         }
-    //       });
-    //       // reset();
-    //     })
-    //     .catch((error) => console.log(error));
-    // });
   };
 
     return (
         <div>
-            <h1>Add Banner</h1>
-            <form onSubmit={handleSubmit(onSubmit)} className="card-body text-center lg:w-1/2 md:h-3/4 mx-auto">
+            <h1 className="text-5xl font-bold text-center">Add Banner</h1>
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body text-center lg:w-1/2 md:h-3/4 mx-auto border-2 my-5 shadow-2xl rounded-xl">
         <div className="grid grid-cols-2 justify-center items-center gap-3">
           <div className="form-control">
             <label className="label">

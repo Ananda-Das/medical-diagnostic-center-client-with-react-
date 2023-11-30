@@ -45,7 +45,7 @@ const Test = () => {
 
   return (
     <div>
-      <h1>All Test: {tests.length}</h1>
+      <h1 className="text-5xl font-bold text-center mb-7">All Test: {tests.length}</h1>
       <div className="overflow-x-auto">
         <table className="table table-zebra">
           {/* head */}

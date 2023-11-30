@@ -37,8 +37,8 @@ const UpdateBooking = () => {
 
     return (
         <div>
-            <h1>Update Test Result</h1>
-            <form onSubmit={handleSubmit(onSubmit)} className="card-body text-center lg:w-1/2 md:h-3/4 mx-auto">
+            <h1 className="text-5xl font-bold text-center mb-7">Update Test Result</h1>
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body text-center lg:w-1/2 md:h-3/4 mx-auto border-2 my-5 shadow-2xl rounded-xl">
         <div className="">
           <div className="form-control">
             <label className="label">

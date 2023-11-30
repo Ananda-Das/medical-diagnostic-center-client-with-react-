@@ -1,16 +1,18 @@
-import { FaBook, FaEnvelope, FaHome, FaList, FaUsers, FaUtensils } from "react-icons/fa";
+import { FaBookmark, FaEnvelope, FaHome, FaList, FaUsers } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../../hooks/useAdmin";
 import { CgProfile } from "react-icons/cg";
 import { LuTestTube2 } from "react-icons/lu";
 import { GiHypodermicTest } from "react-icons/gi";
+import { GiVerticalBanner } from "react-icons/gi";
+import { IoAddCircleSharp } from "react-icons/io5";
 
 const Dashboard = () => {
   //TODO: get is Admin value from the database
   const [isAdmin] = useAdmin();
   return (
     <div className="flex">
-      <div className="w-64 min-h-screen bg-orange-400">
+      <div className="w-64 min-h-screen bg-green-500">
         <ul className="menu p-4">
           {isAdmin ? (
             <>
@@ -21,22 +23,22 @@ const Dashboard = () => {
               </li>
               <li>
                 <NavLink to="/dashboard/addBanners">
-                  <FaUtensils></FaUtensils> Add Banner
+                  <IoAddCircleSharp></IoAddCircleSharp> Add Banner
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/dashboard/allBanners">
-                  <FaUtensils></FaUtensils> All Banners
+                  <GiVerticalBanner></GiVerticalBanner> All Banners
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/add/test">
+                  <IoAddCircleSharp></IoAddCircleSharp> Add Test
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/dashboard/allTest">
                   <FaList></FaList> All test
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/add/test">
-                  <FaBook></FaBook> Add Test
                 </NavLink>
               </li>
               <li>
@@ -46,7 +48,7 @@ const Dashboard = () => {
               </li>
               <li>
                 <NavLink to="/dashboard/allbookings">
-                  <FaUsers></FaUsers> All Bookings
+                  <FaBookmark></FaBookmark> All Bookings
                 </NavLink>
               </li>
             </>
