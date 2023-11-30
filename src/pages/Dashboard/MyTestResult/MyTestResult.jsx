@@ -23,7 +23,7 @@ const MyTestResult = () => {
 
   return (
     <div>
-      <h1>My Tests Results</h1>
+      <h1 className="text-5xl font-bold text-center mb-7">My Tests Results</h1>
       <div className="">
         {myTest && myTest?.map((card) => <MyTestPage key={card._id} card={card}></MyTestPage>)}
       </div>

@@ -23,7 +23,7 @@ const MyBookings = () => {
 
   return (
     <div>
-      <h1>MY Booked Tests: {myTest && myTest?.length}</h1>
+      <h1 className="text-5xl font-bold text-center mb-7">MY Booked Tests: {myTest && myTest?.length}</h1>
       <div className="grid grid-cols-2 gap-5 justify-center items-center">
         {myTest && myTest?.map((card) => <BookingCard key={card._id} card={card}></BookingCard>)}
       </div>

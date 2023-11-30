@@ -57,6 +57,8 @@ const TestDetail = () => {
 
   const role = user.status;
 
+  console.log(role);
+
   const handleBooking = () => {
     //send in the server
     const bookingInfo = {
@@ -107,7 +109,7 @@ const TestDetail = () => {
       </div>
 
       <div className="w-4/5 mx-auto flex justify-end mb-10">
-        {role == true ? (
+        {!role == true ? (
           <>
             {slot > 0 ? (
               <button
