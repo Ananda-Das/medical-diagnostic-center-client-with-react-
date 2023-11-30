@@ -65,20 +65,37 @@ const AllUsers = () => {
     });
   };
 
-  const [userStatus, setUserStatus] = useState("Active");
+  // const [userStatus, setUserStatus] = useState("Active");
 
-  const handleUserStatus = (user) => {
-    axiosSecure.patch(`/user/toggle/${user._id}/${userStatus}`).then((res) => {
-        console.log(res.data.status);
-      //   console.log(res.data.status === 'active' ? 'blocked' : 'active');
-      //   setUserStatus(res.data.status === 'active' ? 'blocked' : 'active');
-    //   let prevStatus = res.data.status;
-    //   setUserStatus(res.data.status=> (res.data.status === "active" ? "blocked" : "active"));
 
-        setUserStatus((prevStatus) => (prevStatus === 'Active' ? 'blocked' : 'Active'));
-      //   setStatus((prevStatus) => (prevStatus === 'Active' ? 'Blocked' : 'Active'));
-    });
+  const handleToggleActive = async (user) => {
+    try {
+
+      // Update the isActive status on the server
+      await axiosSecure.patch(`/change/user/${user._id}`, {
+        status: !user.status,
+      });
+
+
+      // After the update, refetch the data to get the updated state
+      refetch();
+    } catch (error) {
+      console.error("Error toggling isActive:", error);
+    }
   };
+
+  // const handleUserStatus = (user) => {
+  //   axiosSecure.patch(`/user/toggle/${user._id}/${userStatus}`).then((res) => {
+  //       console.log(res.data.status);
+  //     //   console.log(res.data.status === 'active' ? 'blocked' : 'active');
+  //     //   setUserStatus(res.data.status === 'active' ? 'blocked' : 'active');
+  //   //   let prevStatus = res.data.status;
+  //   //   setUserStatus(res.data.status=> (res.data.status === "active" ? "blocked" : "active"));
+
+  //       setUserStatus((prevStatus) => (prevStatus === 'Active' ? 'blocked' : 'Active'));
+  //     //   setStatus((prevStatus) => (prevStatus === 'Active' ? 'Blocked' : 'Active'));
+  //   });
+  // };
 
   //   user.id === userId
   //           ? { ...user, status: user.status === 'active' ? 'blocked' : 'active' }
@@ -119,7 +136,8 @@ const AllUsers = () => {
                   )}
                 </td>
                 <td>
-                  <button onClick={() => handleUserStatus(user)}>{userStatus}</button>
+                  {/* <button onClick={() => handleUserStatus(user)}>{userStatus}</button> */}
+                  <button className="btn btn-primary btn-sm" onClick={() => handleToggleActive(user)}>{user.status ? "Active" : "Block"}</button>
                 </td>
                 <td>
                   <button
@@ -169,7 +187,7 @@ const AllUsers = () => {
                             </tr>
                             <tr>
                               <th>Status</th>
-                              <th>{userInfo?.status}</th>
+                              <th>{userInfo?.status == true ? 'Active': 'Block'}</th>
                             </tr>
                           </tbody>
                         </table>

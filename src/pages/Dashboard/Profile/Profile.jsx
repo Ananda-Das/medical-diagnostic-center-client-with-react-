@@ -61,7 +61,7 @@ const Profile = () => {
               </tr>
               <tr>
                 <th>Status</th>
-                <td>{status}</td>
+                <td>{status==true ? 'Active': 'Block'}</td>
               </tr>
             </tbody>
           </table>

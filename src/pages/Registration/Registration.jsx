@@ -70,7 +70,7 @@ const Registration = () => {
               bloodgrp: data.bloodgrp,
               district: data.district,
               upazila: data.upazila,
-              status: "Active",
+              status: true,
               role: "user",
             };
             axiosPublic.post("/users", userInfo).then((res) => {
