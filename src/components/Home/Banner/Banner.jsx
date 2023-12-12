@@ -2,6 +2,7 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useEffect, useState } from "react";
 import BannerInfo from "./BannerInfo";
 
+
 const Banner = () => {
   const axiosPublic = useAxiosPublic();
 
